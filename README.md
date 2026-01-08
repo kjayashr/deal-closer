@@ -43,11 +43,11 @@ flowchart TD
     Generate --> Return[Return Response]
 ```
 
-## 🔍 MIR-MAT Core Logic (Situation → Slots → Matching)
+## 🔍 Core Logic (Situation → Slots → Matching)
 
 These diagrams describe the core decision engine: capture slots, detect situation, match principles, and generate responses. This is the heart of DealCloser.
 
-### MIR-MAT Overview
+### Core Logic Overview
 ```mermaid
 flowchart TD
     Start[Customer Message] --> Capture[Capture Slots]
@@ -79,7 +79,7 @@ flowchart TD
     Merge --> Persist[Persist Session State]
 ```
 
-### Principle Matching (MIR-MAT)
+### Principle Matching
 ```mermaid
 flowchart TD
     Start[Situation + Context] --> Rules[Rule Evaluation]
@@ -89,6 +89,20 @@ flowchart TD
     Principle --> Response[Generate Response]
     Fallback --> Response
 ```
+
+### Core Matching Logic (How Config Drives Decisions)
+
+DealCloser is configuration-driven. The engine uses three inputs to decide the final response:
+
+- **capture_schema.json**: Defines which slots to extract from messages (pain, budget_signal, objection, etc.). Captured slots and quotes update the session context.
+- **situations.json**: Defines situations with signals and contra-signals. The detector scores situations against the current message + context and returns a winning situation and confidence.
+- **principle_selector.json**: Defines rule-based mappings from situation + context to a principle. Rules are evaluated top-down, using `when_context_has` or `when_context_missing` to gate matches. If no rule matches, a fallback principle is used.
+
+Simplified flow:
+1. Capture slots from the message using `capture_schema.json`, then merge into session context.
+2. Detect the most likely situation using `situations.json` signals and updated context.
+3. Match a principle using `principle_selector.json` rules. If none match, use fallback.
+4. Generate a response with the selected principle and the captured context.
 
 ## ✨ What is DealCloser?
 
@@ -403,36 +417,21 @@ DealCloser comes with **comprehensive test coverage** ensuring reliability and m
 [![Fixtures](https://img.shields.io/badge/Fixtures-Shared-success?style=flat-square)](tests/conftest.py)
 [![Mocks](https://img.shields.io/badge/Mocks-Comprehensive-purple?style=flat-square)](tests/conftest.py)
 
-```
-tests/
-├── conftest.py              # Shared fixtures & mocks
-│   └── [![Fixtures](https://img.shields.io/badge/Fixtures-15%2B-yellow?style=flat-square)]()
-├── test_validation_suite.py # Integration tests
-│   └── [![Integration](https://img.shields.io/badge/Tests-11-orange?style=flat-square)]()
-└── unit/
-    ├── test_capture.py              # 20 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-20-green?style=flat-square)]()
-    ├── test_situation_detector.py   # 21 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-21-green?style=flat-square)]()
-    ├── test_principle_selector.py   # 27 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-27-green?style=flat-square)]()
-    ├── test_response_builder.py     # 28 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-28-green?style=flat-square)]()
-    ├── test_response_generator.py   # 22 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-22-green?style=flat-square)]()
-    ├── test_exact_cache.py          # 26 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-26-green?style=flat-square)]()
-    ├── test_semantic_cache.py       # 31 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-31-green?style=flat-square)]()
-    ├── test_llm_router.py           # 24 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-24-green?style=flat-square)]()
-    ├── test_llm_pool.py             # 14 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-14-green?style=flat-square)]()
-    ├── test_orchestrator.py         # 15 tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-15-green?style=flat-square)]()
-    └── test_utils.py                # 12 tests
-        └── [![Tests](https://img.shields.io/badge/Tests-12-green?style=flat-square)]()
-```
+| Path | Purpose | Test Count |
+|------|---------|------------|
+| `tests/conftest.py` | Shared fixtures and mocks | N/A |
+| `tests/test_validation_suite.py` | Integration tests | 11 |
+| `tests/unit/test_capture.py` | Capture engine tests | 20 |
+| `tests/unit/test_situation_detector.py` | Situation detection tests | 21 |
+| `tests/unit/test_principle_selector.py` | Principle selector tests | 27 |
+| `tests/unit/test_response_builder.py` | Response builder tests | 28 |
+| `tests/unit/test_response_generator.py` | Response generator tests | 22 |
+| `tests/unit/test_exact_cache.py` | Exact cache tests | 26 |
+| `tests/unit/test_semantic_cache.py` | Semantic cache tests | 31 |
+| `tests/unit/test_llm_router.py` | LLM router tests | 24 |
+| `tests/unit/test_llm_pool.py` | LLM pool tests | 14 |
+| `tests/unit/test_orchestrator.py` | Orchestrator tests | 15 |
+| `tests/unit/test_utils.py` | Utility tests | 12 |
 
 ### 🏃 Running Tests
 
