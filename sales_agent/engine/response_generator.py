@@ -110,23 +110,22 @@ Response:"""
                     base_delay=config.RETRY_BASE_DELAY_SECONDS,
                     exceptions=(APIError, APIConnectionError, APIStatusError, Exception)
                 )
-            
-            # Validate and enforce 2-sentence limit
-            validated_response = self._validate_sentence_count(response_text.strip())
-            
-            return {
-                "response": validated_response,
-                "principle_used": principle["name"]
-            }
-            
-        except Exception as e:
-            logger.error(f"Failed to generate response: {str(e)}")
-            # Generate fallback response using customer quotes
-            fallback = self._generate_fallback_response(customer_quotes, situation)
-            return {
-                "response": fallback,
-                "principle_used": principle["name"]
-            }
+                # Validate and enforce 2-sentence limit
+                validated_response = self._validate_sentence_count(response_text.strip())
+                
+                return {
+                    "response": validated_response,
+                    "principle_used": principle["name"]
+                }
+                
+            except Exception as e:
+                logger.error(f"Failed to generate response: {str(e)}")
+                # Generate fallback response using customer quotes
+                fallback = self._generate_fallback_response(customer_quotes, situation)
+                return {
+                    "response": fallback,
+                    "principle_used": principle["name"]
+                }
     
     def _generate_fallback_response(self, customer_quotes: List[str], situation: str) -> str:
         """Generate a simple fallback response when LLM fails."""
