@@ -11,7 +11,7 @@
 ![Uvicorn](https://img.shields.io/badge/Uvicorn-0.27-5E4F99?style=for-the-badge)
 
 [![Tests](https://img.shields.io/badge/Tests-250%2B-green?style=for-the-badge&logo=pytest)](tests/)
-[![Coverage](https://img.shields.io/badge/Coverage-90%25-brightgreen?style=for-the-badge)](tests/)
+[![Coverage](https://img.shields.io/badge/Coverage-Target_90%25-brightgreen?style=for-the-badge)](tests/)
 [![Unit Tests](https://img.shields.io/badge/Unit_Tests-11_files-success?style=for-the-badge)](tests/unit/)
 [![Integration Tests](https://img.shields.io/badge/Integration_Tests-11-passing?style=for-the-badge)](tests/)
 
@@ -20,7 +20,7 @@
 [![Async](https://img.shields.io/badge/Async-Await-3776ab?style=for-the-badge)](https://docs.python.org/3/library/asyncio.html)
 [![HTTP/2](https://img.shields.io/badge/HTTP%2F2-Enabled-brightgreen?style=for-the-badge)](https://en.wikipedia.org/wiki/HTTP/2)
 
-**🎯 ~175ms p95 latency** (65% faster than baseline) | **🔥 Multi-provider racing** | **💾 Intelligent caching** | **🧪 250+ unit tests**
+**🎯 target ~175ms p95 latency** (target 65% faster than baseline) | **🔥 Multi-provider racing** | **💾 Intelligent caching** | **🧪 240+ unit tests**
 
 [Quick Start](#-quick-start) • [Features](#-features) • [Architecture](#-architecture) • [Testing](#-testing) • [Performance](#-performance) • [API](#-api-reference)
 
@@ -34,17 +34,17 @@ DealCloser is a **production-ready AI sales agent engine** that transforms custo
 
 ### 🎯 Why DealCloser?
 
-[![Speed](https://img.shields.io/badge/Speed-~175ms_p95-important?style=flat-square)](##-performance)
+[![Speed](https://img.shields.io/badge/Speed-Target_~175ms_p95-important?style=flat-square)](##-performance)
 [![Reliability](https://img.shields.io/badge/Reliability-250%2B_tests-success?style=flat-square)](##-testing)
-[![Coverage](https://img.shields.io/badge/Coverage-90%25-brightgreen?style=flat-square)](##-testing)
+[![Coverage](https://img.shields.io/badge/Coverage-Target_90%25-brightgreen?style=flat-square)](##-testing)
 [![Psychology](https://img.shields.io/badge/Psychology-Based-purple?style=flat-square)](##-features)
 [![Production](https://img.shields.io/badge/Production-Ready-blue?style=flat-square)](##-quick-start)
 [![Open Source](https://img.shields.io/badge/Open_Source-MIT-green?style=flat-square)](LICENSE)
 
-- **⚡ Lightning Fast**: ~175ms p95 latency with intelligent caching and parallel execution
+- **⚡ Lightning Fast**: target ~175ms p95 latency with intelligent caching and parallel execution
 - **🧠 Psychology-Driven**: Uses principles from *Thinking Fast and Slow*, *Influence*, and *Never Split the Difference*
 - **🔄 Adaptive**: Automatically adjusts responses based on customer signals and conversation history
-- **🛡️ Battle-Tested**: 250+ comprehensive unit tests ensuring reliability
+- **🛡️ Battle-Tested**: 240+ comprehensive unit tests ensuring reliability
 - **📊 Observable**: Built-in metrics, stats endpoints, and performance monitoring
 - **🚀 Production-Ready**: Multi-provider racing, connection pooling, graceful fallbacks
 
@@ -52,12 +52,12 @@ DealCloser is a **production-ready AI sales agent engine** that transforms custo
 
 | Metric | Value | Badge |
 |--------|-------|-------|
-| **Latency (p95)** | ~175ms | ![Latency](https://img.shields.io/badge/p95-~175ms-success?style=flat-square) |
-| **Test Coverage** | 90%+ | ![Coverage](https://img.shields.io/badge/Coverage-90%25-brightgreen?style=flat-square) |
-| **Unit Tests** | 250+ | ![Tests](https://img.shields.io/badge/Tests-250%2B-green?style=flat-square) |
-| **Cache Hit Rate** | 25-30% | ![Cache](https://img.shields.io/badge/Cache_Hit-25--30%25-blue?style=flat-square) |
-| **Reconcile Rate** | 15-20% | ![Reconcile](https://img.shields.io/badge/Reconcile-15--20%25-orange?style=flat-square) |
-| **Throughput** | 500+ req/s | ![Throughput](https://img.shields.io/badge/Throughput-500%2B_req%2Fs-success?style=flat-square) |
+| **Latency (p95)** | Target ~175ms | ![Latency](https://img.shields.io/badge/p95-Target_~175ms-success?style=flat-square) |
+| **Test Coverage** | Target 90%+ | ![Coverage](https://img.shields.io/badge/Coverage-Target_90%25-brightgreen?style=flat-square) |
+| **Unit Tests** | 240+ | ![Tests](https://img.shields.io/badge/Tests-240%2B-green?style=flat-square) |
+| **Cache Hit Rate** | Target 25-30% | ![Cache](https://img.shields.io/badge/Cache_Hit-Target_25--30%25-blue?style=flat-square) |
+| **Reconcile Rate** | Target 15-20% | ![Reconcile](https://img.shields.io/badge/Reconcile-Target_15--20%25-orange?style=flat-square) |
+| **Throughput** | Target 500+ req/s | ![Throughput](https://img.shields.io/badge/Throughput-Target_500%2B_req%2Fs-success?style=flat-square) |
 
 ---
 
@@ -122,15 +122,15 @@ curl -X POST http://localhost:8000/chat \
 
 [![Detection](https://img.shields.io/badge/Situation_Detection-Automatic-blue?style=flat-square)]()
 [![Confidence](https://img.shields.io/badge/Confidence-High-success?style=flat-square)]()
-[![Situations](https://img.shields.io/badge/Situations-25%2B-purple?style=flat-square)]()
+[![Situations](https://img.shields.io/badge/Situations-50%2B-purple?style=flat-square)]()
 
 Automatically detects customer situations (price objections, warranty concerns, comparison shopping, etc.) with high confidence scores.
 
 ### 🎯 Principle Selection Engine
 
-[![Principles](https://img.shields.io/badge/Principles-50%2B-yellow?style=flat-square)]()
+[![Principles](https://img.shields.io/badge/Principles-75%2B-yellow?style=flat-square)]()
 [![Psychology](https://img.shields.io/badge/Psychology-Based-purple?style=flat-square)]()
-[![Rules](https://img.shields.io/badge/Rules-30%2B-orange?style=flat-square)]()
+[![Rules](https://img.shields.io/badge/Rules-27%2B-orange?style=flat-square)]()
 
 Selects optimal sales principles based on:
 - Detected situation
@@ -154,11 +154,11 @@ Generates human-like, empathetic responses that:
 
 | Optimization | Impact | Badge |
 |-------------|--------|-------|
-| 🏃 **Parallel Execution** | ~40% faster | ![Parallel](https://img.shields.io/badge/Parallel-Enabled-success?style=flat-square) |
-| 🎯 **Two-Tier Caching** | <10ms hits | ![Caching](https://img.shields.io/badge/Caching-2_Tiers-blue?style=flat-square) |
-| 🚀 **Multi-Provider Racing** | ~30% faster | ![Racing](https://img.shields.io/badge/Racing-Anthropic%2BOpenAI-purple?style=flat-square) |
-| 📉 **Prompt Compression** | 50-60% tokens | ![Compression](https://img.shields.io/badge/Compression-50--60%25-orange?style=flat-square) |
-| 🔌 **Connection Pooling** | Reduced latency | ![Pooling](https://img.shields.io/badge/Pooling-HTTP%2F2-brightgreen?style=flat-square) |
+| 🏃 **Parallel Execution** | Target ~40% faster | ![Parallel](https://img.shields.io/badge/Parallel-Enabled-success?style=flat-square) |
+| 🎯 **Two-Tier Caching** | Target <10ms hits | ![Caching](https://img.shields.io/badge/Caching-2_Tiers-blue?style=flat-square) |
+| 🚀 **Multi-Provider Racing** | Target ~30% faster | ![Racing](https://img.shields.io/badge/Racing-Anthropic%2BOpenAI-purple?style=flat-square) |
+| 📉 **Prompt Compression** | Target 50-60% tokens | ![Compression](https://img.shields.io/badge/Compression-50--60%25-orange?style=flat-square) |
+| 🔌 **Connection Pooling** | Target reduced latency | ![Pooling](https://img.shields.io/badge/Pooling-HTTP%2F2-brightgreen?style=flat-square) |
 | 🎚️ **Tiered Model Routing** | Cost optimized | ![Routing](https://img.shields.io/badge/Routing-Tiered-yellow?style=flat-square) |
 
 ### 🔄 Smart Reconcile Logic
@@ -192,7 +192,7 @@ Automatically re-runs situation detection when:
 ```mermaid
 flowchart TD
     Start[📥 Customer Message] --> Cache{💾 Cache Check}
-    Cache -->|Hit| Fast[⚡ <10ms Response]
+    Cache -->|Hit| Fast[⚡ Target <10ms Response]
     Cache -->|Miss| Parallel[🔄 Parallel Execution]
     
     Parallel --> Capture[📊 Capture Signals]
@@ -213,6 +213,41 @@ flowchart TD
     style Reconcile fill:#FFD700
 ```
 
+### 🔁 Additional Flows
+
+#### ⚡ Cache Hit Path
+```mermaid
+flowchart TD
+    Start[📥 Customer Message] --> Exact{Exact Cache Hit?}
+    Exact -->|Yes| ExactReturn[✅ Return Cached Response]
+    Exact -->|No| Semantic{Semantic Cache Hit?}
+    Semantic -->|Yes| SemanticReturn[✅ Return Cached Response]
+    Semantic -->|No| Miss[➡️ Cache Miss Path]
+```
+
+#### 🧭 Cache Miss + Reconcile Path
+```mermaid
+flowchart TD
+    Start[📥 Customer Message] --> Parallel[🔄 Capture + Detect (Parallel)]
+    Parallel --> Update[🧩 Update Context]
+    Update --> Reconcile{Reconcile Needed?}
+    Reconcile -->|Yes| Redetect[🔄 Re-detect with Updated Context]
+    Reconcile -->|No| Select[🎯 Select Principle]
+    Redetect --> Select
+    Select --> Generate[💬 Generate Response]
+    Generate --> Store[💾 Store in Caches]
+    Store --> Return[✅ Return Response]
+```
+
+#### 🛟 LLM Fallback Path
+```mermaid
+flowchart TD
+    Start[📥 Customer Message] --> Generate[💬 Generate Response]
+    Generate -->|Success| Return[✅ Return Response]
+    Generate -->|LLM Error| Fallback[🛟 Use Fallback Response]
+    Fallback --> Return
+```
+
 ### Core Components
 
 ```
@@ -220,9 +255,9 @@ flowchart TD
 ├── 📊 Capture Engine (Extracts customer signals)
 │   └── [![Slots](https://img.shields.io/badge/Slots-23-yellow?style=flat-square)]()
 ├── 🎯 Situation Detector (Classifies customer situation)
-│   └── [![Situations](https://img.shields.io/badge/Situations-25%2B-purple?style=flat-square)]()
+│   └── [![Situations](https://img.shields.io/badge/Situations-50%2B-purple?style=flat-square)]()
 ├── 🧠 Principle Selector (Selects best sales principle)
-│   └── [![Principles](https://img.shields.io/badge/Principles-50%2B-orange?style=flat-square)]()
+│   └── [![Principles](https://img.shields.io/badge/Principles-75%2B-orange?style=flat-square)]()
 ├── 💬 Response Generator (Creates natural responses)
 │   └── [![Max_Sentences](https://img.shields.io/badge/Max_Sentences-2-red?style=flat-square)]()
 └── 🏗️ Response Builder (Structures final output)
@@ -255,7 +290,7 @@ sequenceDiagram
     🧠 Orchestrator->>💾 Cache: Check exact + semantic
     
     alt Cache Hit 🎯
-        💾 Cache-->>🧠 Orchestrator: Cached response (<10ms)
+        💾 Cache-->>🧠 Orchestrator: Cached response (target <10ms)
         🧠 Orchestrator-->>🌐 API: Response
         🌐 API-->>👤 Customer: ✅ Instant response
     else Cache Miss ⚡
@@ -268,7 +303,7 @@ sequenceDiagram
         🧠 Orchestrator->>🤖 LLM Providers: Generate (racing)
         🤖 LLM Providers-->>🧠 Orchestrator: Response
         🧠 Orchestrator->>💾 Cache: Store results
-        🧠 Orchestrator-->>🌐 API: Response (~175ms)
+        🧠 Orchestrator-->>🌐 API: Response (target ~175ms)
         🌐 API-->>👤 Customer: ✅ Natural response
     end
 ```
@@ -282,8 +317,8 @@ DealCloser comes with **comprehensive test coverage** ensuring reliability and m
 ### 📊 Test Coverage Overview
 
 [![Tests](https://img.shields.io/badge/Total_Tests-250%2B-green?style=for-the-badge)](tests/)
-[![Coverage](https://img.shields.io/badge/Coverage-90%25-brightgreen?style=for-the-badge)](tests/)
-[![Unit_Tests](https://img.shields.io/badge/Unit_Tests-250%2B-success?style=for-the-badge)](tests/unit/)
+[![Coverage](https://img.shields.io/badge/Coverage-Target_90%25-brightgreen?style=for-the-badge)](tests/)
+[![Unit_Tests](https://img.shields.io/badge/Unit_Tests-240%2B-success?style=for-the-badge)](tests/unit/)
 [![Integration_Tests](https://img.shields.io/badge/Integration_Tests-11-passing?style=for-the-badge)](tests/)
 
 [![pytest](https://img.shields.io/badge/pytest-7.4-0A9EDC?style=flat-square&logo=pytest)](https://pytest.org)
@@ -292,9 +327,9 @@ DealCloser comes with **comprehensive test coverage** ensuring reliability and m
 [![pytest-cov](https://img.shields.io/badge/pytest--cov-4.1%2B-green?style=flat-square)](https://pytest-cov.readthedocs.io)
 
 ```
-✅ 250+ Unit Tests
+✅ 240+ Unit Tests
 ✅ 11+ Integration Tests  
-✅ 90%+ Code Coverage
+✅ Target 90%+ Code Coverage
 ✅ All critical paths tested
 ✅ Edge cases covered
 ✅ Error handling verified
@@ -313,28 +348,28 @@ tests/
 ├── test_validation_suite.py # Integration tests
 │   └── [![Integration](https://img.shields.io/badge/Tests-11-orange?style=flat-square)]()
 └── unit/
-    ├── test_capture.py              # 25+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-25%2B-green?style=flat-square)]()
-    ├── test_situation_detector.py   # 25+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-25%2B-green?style=flat-square)]()
-    ├── test_principle_selector.py   # 23+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-23%2B-green?style=flat-square)]()
-    ├── test_response_builder.py     # 25+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-25%2B-green?style=flat-square)]()
-    ├── test_response_generator.py   # 20+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-20%2B-green?style=flat-square)]()
-    ├── test_exact_cache.py          # 30+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-30%2B-green?style=flat-square)]()
-    ├── test_semantic_cache.py       # 30+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-30%2B-green?style=flat-square)]()
-    ├── test_llm_router.py           # 25+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-25%2B-green?style=flat-square)]()
-    ├── test_llm_pool.py             # 15+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-15%2B-green?style=flat-square)]()
-    ├── test_orchestrator.py         # 20+ tests
-    │   └── [![Tests](https://img.shields.io/badge/Tests-20%2B-green?style=flat-square)]()
-    └── test_utils.py                # 16+ tests
-        └── [![Tests](https://img.shields.io/badge/Tests-16-green?style=flat-square)]()
+    ├── test_capture.py              # 20 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-20-green?style=flat-square)]()
+    ├── test_situation_detector.py   # 21 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-21-green?style=flat-square)]()
+    ├── test_principle_selector.py   # 27 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-27-green?style=flat-square)]()
+    ├── test_response_builder.py     # 28 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-28-green?style=flat-square)]()
+    ├── test_response_generator.py   # 22 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-22-green?style=flat-square)]()
+    ├── test_exact_cache.py          # 26 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-26-green?style=flat-square)]()
+    ├── test_semantic_cache.py       # 31 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-31-green?style=flat-square)]()
+    ├── test_llm_router.py           # 24 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-24-green?style=flat-square)]()
+    ├── test_llm_pool.py             # 14 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-14-green?style=flat-square)]()
+    ├── test_orchestrator.py         # 15 tests
+    │   └── [![Tests](https://img.shields.io/badge/Tests-15-green?style=flat-square)]()
+    └── test_utils.py                # 12 tests
+        └── [![Tests](https://img.shields.io/badge/Tests-12-green?style=flat-square)]()
 ```
 
 ### 🏃 Running Tests
@@ -411,7 +446,7 @@ Every component is tested for:
 
 [![POST](https://img.shields.io/badge/METHOD-POST-blue?style=flat-square)]()
 [![Endpoint](https://img.shields.io/badge/Endpoint-/chat-success?style=flat-square)]()
-[![Auth](https://img.shields.io/badge/Auth-Required-red?style=flat-square)]()
+[![Auth](https://img.shields.io/badge/Auth-None-success?style=flat-square)]()
 
 Send a customer message and get an AI-generated sales response.
 
@@ -436,6 +471,7 @@ Send a customer message and get an AI-generated sales response.
   },
   "agent_dashboard": {
     "detection": {
+      "customer_said": "This product is too expensive. My back has been hurting for years.",
       "detected_situation": "price_shock_in_store",
       "situation_confidence": 0.92,
       "micro_stage": "objection_handling",
@@ -464,7 +500,13 @@ Send a customer message and get an AI-generated sales response.
       "principle_id": "kahneman_loss_aversion_01",
       "source": "Kahneman, Thinking Fast and Slow, Ch.26, p.284",
       "approach": "Frame in terms of what they'll lose",
+      "response": "I understand price is really important to you, and it sounds like your back has been hurting for years. What if this chair could help you avoid future back pain and medical costs?",
       "why_it_works": "Loss framing increases motivation"
+    },
+    "fallback": {
+      "principle": "Loss Aversion",
+      "principle_id": "kahneman_loss_aversion_01",
+      "response": "I understand you mentioned 'back has been hurting for years'. Can you tell me more about what you're looking for?"
     },
     "next_probe": {
       "target": "product_interest",
@@ -488,7 +530,9 @@ Send a customer message and get an AI-generated sales response.
         "generate_ms": 54,
         "reconcile_triggered": true
       }
-    }
+    },
+    "cache_hit": false,
+    "cache_type": null
   }
 }
 ```
@@ -664,18 +708,18 @@ Root endpoint with API information.
 
 ### 🎯 Performance Metrics
 
-[![Latency](https://img.shields.io/badge/p95_Latency-~175ms-success?style=for-the-badge)](##-performance)
-[![Cache](https://img.shields.io/badge/Cache_Hit-<10ms-brightgreen?style=for-the-badge)](##-performance)
-[![Throughput](https://img.shields.io/badge/Throughput-500%2B_req/s-blue?style=for-the-badge)](##-performance)
+[![Latency](https://img.shields.io/badge/p95_Latency-Target_~175ms-success?style=for-the-badge)](##-performance)
+[![Cache](https://img.shields.io/badge/Cache_Hit-Target_<10ms-brightgreen?style=for-the-badge)](##-performance)
+[![Throughput](https://img.shields.io/badge/Throughput-Target_500%2B_req/s-blue?style=for-the-badge)](##-performance)
 
 | Metric | Value | Badge |
 |--------|-------|-------|
-| **p95 Latency** | ~175ms | [![p95](https://img.shields.io/badge/p95-~175ms-success?style=flat-square)]() |
-| **p99 Latency** | ~220ms | [![p99](https://img.shields.io/badge/p99-~220ms-orange?style=flat-square)]() |
-| **Cache Hit Latency** | <10ms | [![Cache](https://img.shields.io/badge/Cache-<10ms-brightgreen?style=flat-square)]() |
-| **Cache Hit Rate** | 25-30% | [![Hit Rate](https://img.shields.io/badge/Hit_Rate-25--30%25-blue?style=flat-square)]() |
-| **Reconcile Rate** | 15-20% | [![Reconcile](https://img.shields.io/badge/Reconcile-15--20%25-purple?style=flat-square)]() |
-| **Throughput** | 500+ req/s | [![Throughput](https://img.shields.io/badge/Throughput-500%2B-success?style=flat-square)]() |
+| **p95 Latency** | Target ~175ms | [![p95](https://img.shields.io/badge/p95-Target_~175ms-success?style=flat-square)]() |
+| **p99 Latency** | Target ~220ms | [![p99](https://img.shields.io/badge/p99-Target_~220ms-orange?style=flat-square)]() |
+| **Cache Hit Latency** | Target <10ms | [![Cache](https://img.shields.io/badge/Cache-Target_<10ms-brightgreen?style=flat-square)]() |
+| **Cache Hit Rate** | Target 25-30% | [![Hit Rate](https://img.shields.io/badge/Hit_Rate-Target_25--30%25-blue?style=flat-square)]() |
+| **Reconcile Rate** | Target 15-20% | [![Reconcile](https://img.shields.io/badge/Reconcile-Target_15--20%25-purple?style=flat-square)]() |
+| **Throughput** | Target 500+ req/s | [![Throughput](https://img.shields.io/badge/Throughput-Target_500%2B-success?style=flat-square)]() |
 
 ### 📊 Performance Breakdown
 
@@ -687,7 +731,7 @@ Root endpoint with API information.
 [![Generate](https://img.shields.io/badge/Generate-54ms-red?style=flat-square)]()
 
 ```
-Typical Request (Cache Miss):
+Target Request (Cache Miss):
 ├── Cache Check:          2ms
 ├── Capture (parallel):   45ms ─┐
 ├── Detect (parallel):    48ms ─┤ 52ms total (parallel)
@@ -695,31 +739,31 @@ Typical Request (Cache Miss):
 ├── Select Principle:      1ms  │
 ├── Generate Response:    54ms  │
 ├── Cache Write:           3ms  │
-└── Total:              ~175ms  │
+└── Total:              target ~175ms  │
 
-Cache Hit:
-└── Total:                <10ms ⚡
+Cache Hit (target):
+└── Total:                target <10ms ⚡
 ```
 
 ### 🚀 Optimization Impact
 
-[![Baseline](https://img.shields.io/badge/Baseline-505ms-red?style=flat-square)]()
-[![Phase 1](https://img.shields.io/badge/Phase_1-420ms-orange?style=flat-square)]()
-[![Phase 2](https://img.shields.io/badge/Phase_2-310ms-yellow?style=flat-square)]()
-[![Phase 3](https://img.shields.io/badge/Phase_3-240ms-blue?style=flat-square)]()
-[![Phase 4](https://img.shields.io/badge/Phase_4-200ms-purple?style=flat-square)]()
-[![Phase 5](https://img.shields.io/badge/Phase_5-175ms-success?style=flat-square)]()
+[![Baseline](https://img.shields.io/badge/Baseline-Target_505ms-red?style=flat-square)]()
+[![Phase 1](https://img.shields.io/badge/Phase_1-Target_420ms-orange?style=flat-square)]()
+[![Phase 2](https://img.shields.io/badge/Phase_2-Target_310ms-yellow?style=flat-square)]()
+[![Phase 3](https://img.shields.io/badge/Phase_3-Target_240ms-blue?style=flat-square)]()
+[![Phase 4](https://img.shields.io/badge/Phase_4-Target_200ms-purple?style=flat-square)]()
+[![Phase 5](https://img.shields.io/badge/Phase_5-Target_175ms-success?style=flat-square)]()
 
 | Phase | Latency Improvement | Badge | Description |
 |-------|-------------------|-------|-------------|
-| Baseline | 505ms | [![Baseline](https://img.shields.io/badge/Baseline-505ms-red?style=flat-square)]() | Sequential execution, no caching |
-| Phase 1 | 420ms | [![Phase 1](https://img.shields.io/badge/Phase_1-420ms-orange?style=flat-square)]() | Connection pooling + exact cache |
-| Phase 2 | 310ms | [![Phase 2](https://img.shields.io/badge/Phase_2-310ms-yellow?style=flat-square)]() | Parallel execution (capture + detect) |
-| Phase 3 | 240ms | [![Phase 3](https://img.shields.io/badge/Phase_3-240ms-blue?style=flat-square)]() | Multi-provider racing |
-| Phase 4 | 200ms | [![Phase 4](https://img.shields.io/badge/Phase_4-200ms-purple?style=flat-square)]() | Semantic caching |
-| Phase 5 | **175ms** | [![Final](https://img.shields.io/badge/Final-175ms-success?style=flat-square)]() | Prompt compression + tiered routing |
+| Baseline | Target 505ms | [![Baseline](https://img.shields.io/badge/Baseline-Target_505ms-red?style=flat-square)]() | Sequential execution, no caching |
+| Phase 1 | Target 420ms | [![Phase 1](https://img.shields.io/badge/Phase_1-Target_420ms-orange?style=flat-square)]() | Connection pooling + exact cache |
+| Phase 2 | Target 310ms | [![Phase 2](https://img.shields.io/badge/Phase_2-Target_310ms-yellow?style=flat-square)]() | Parallel execution (capture + detect) |
+| Phase 3 | Target 240ms | [![Phase 3](https://img.shields.io/badge/Phase_3-Target_240ms-blue?style=flat-square)]() | Multi-provider racing |
+| Phase 4 | Target 200ms | [![Phase 4](https://img.shields.io/badge/Phase_4-Target_200ms-purple?style=flat-square)]() | Semantic caching |
+| Phase 5 | **Target 175ms** | [![Final](https://img.shields.io/badge/Final-Target_175ms-success?style=flat-square)]() | Prompt compression + tiered routing |
 
-**Result: 65% latency reduction** 🎉 [![Improvement](https://img.shields.io/badge/Improvement-65%25-brightgreen?style=for-the-badge)]()
+**Target: 65% latency reduction** 🎉 [![Improvement](https://img.shields.io/badge/Improvement-Target_65%25-brightgreen?style=for-the-badge)]()
 
 ---
 
@@ -735,9 +779,9 @@ Customize DealCloser by editing JSON files in `sales_agent/config/`:
 
 | File | Purpose | Badge | Key Fields |
 |------|---------|-------|------------|
-| `principles.json` | Sales principles | [![Principles](https://img.shields.io/badge/Principles-50%2B-yellow?style=flat-square)]() | `principle_id`, `name`, `intervention`, `mechanism` |
-| `situations.json` | Customer situations | [![Situations](https://img.shields.io/badge/Situations-25%2B-purple?style=flat-square)]() | `signals`, `stage`, `description` |
-| `principle_selector.json` | Selection rules | [![Rules](https://img.shields.io/badge/Rules-30%2B-orange?style=flat-square)]() | `rules`, `fallback`, `when_context_has` |
+| `principles.json` | Sales principles | [![Principles](https://img.shields.io/badge/Principles-75%2B-yellow?style=flat-square)]() | `principle_id`, `name`, `intervention`, `mechanism` |
+| `situations.json` | Customer situations | [![Situations](https://img.shields.io/badge/Situations-50%2B-purple?style=flat-square)]() | `signals`, `stage`, `description` |
+| `principle_selector.json` | Selection rules | [![Rules](https://img.shields.io/badge/Rules-27%2B-orange?style=flat-square)]() | `rules`, `fallback`, `when_context_has` |
 | `capture_schema.json` | Extraction schema | [![Slots](https://img.shields.io/badge/Slots-23-blue?style=flat-square)]() | `slots`, `priority`, `listen_for` |
 | `settings.py` | Environment config | [![Settings](https://img.shields.io/badge/Settings-Python-green?style=flat-square)]() | API keys, cache, retry, LLM configs |
 
@@ -828,14 +872,14 @@ dealcloser/
 ├── sales_agent/
 │   ├── api/
 │   │   └── main.py              # FastAPI application
-│   │       └── [![Endpoints](https://img.shields.io/badge/Endpoints-7-blue?style=flat-square)]()
+│   │       └── [![Endpoints](https://img.shields.io/badge/Endpoints-8-blue?style=flat-square)]()
 │   ├── config/
 │   │   ├── principles.json      # Sales principles
-│   │   │   └── [![Principles](https://img.shields.io/badge/Principles-50%2B-yellow?style=flat-square)]()
+│   │   │   └── [![Principles](https://img.shields.io/badge/Principles-75%2B-yellow?style=flat-square)]()
 │   │   ├── situations.json      # Customer situations
-│   │   │   └── [![Situations](https://img.shields.io/badge/Situations-25%2B-purple?style=flat-square)]()
+│   │   │   └── [![Situations](https://img.shields.io/badge/Situations-50%2B-purple?style=flat-square)]()
 │   │   ├── principle_selector.json
-│   │   │   └── [![Rules](https://img.shields.io/badge/Rules-30%2B-orange?style=flat-square)]()
+│   │   │   └── [![Rules](https://img.shields.io/badge/Rules-27%2B-orange?style=flat-square)]()
 │   │   ├── capture_schema.json
 │   │   │   └── [![Slots](https://img.shields.io/badge/Slots-23-blue?style=flat-square)]()
 │   │   └── settings.py          # Environment config
@@ -857,10 +901,10 @@ dealcloser/
 │   │   └── [![Fixtures](https://img.shields.io/badge/Fixtures-15%2B-yellow?style=flat-square)]()
 │   ├── test_validation_suite.py # Integration tests
 │   │   └── [![Integration](https://img.shields.io/badge/Tests-11-orange?style=flat-square)]()
-│   └── unit/                    # 250+ unit tests
-│       └── [![Unit Tests](https://img.shields.io/badge/Unit_Tests-250%2B-green?style=flat-square)]()
+│   └── unit/                    # 240+ unit tests
+│       └── [![Unit Tests](https://img.shields.io/badge/Unit_Tests-240%2B-green?style=flat-square)]()
 ├── requirements.txt
-│   └── [![Dependencies](https://img.shields.io/badge/Dependencies-14-blue?style=flat-square)]()
+│   └── [![Dependencies](https://img.shields.io/badge/Dependencies-15-blue?style=flat-square)]()
 └── README.md
 ```
 
@@ -905,7 +949,7 @@ streamlit run streamlit_app.py
 - **Type Hints**: Use type annotations
 - **Docstrings**: Document all public functions
 - **Tests**: Write tests for new features
-- **Coverage**: Maintain 90%+ coverage
+- **Coverage**: Target 90%+ coverage
 
 ### 🔍 Config Details
 
@@ -913,9 +957,9 @@ streamlit run streamlit_app.py
 [![Domain](https://img.shields.io/badge/Domain-retail_b2c-purple?style=flat-square)]()
 
 - **capture_schema.json**: `version: 1.0`, `domain: retail_b2c`, **23 slots**
-- **principle_selector.json**: `version: 1.0`, `domain: retail`, **30+ rules**
-- **principles.json**: **50+ principles** from Kahneman, Cialdini, Voss
-- **situations.json**: **25+ situations** with signals and stages
+- **principle_selector.json**: `version: 1.0`, `domain: retail`, **27 rules**
+- **principles.json**: **75+ principles** from Kahneman, Cialdini, Voss
+- **situations.json**: **50+ situations** with signals and stages
 
 ---
 
@@ -985,6 +1029,6 @@ Built with principles from:
 [![Issues](https://img.shields.io/badge/Issues-Report_Bug-red?style=for-the-badge)](https://github.com/yourusername/dealcloser/issues)
 [![Features](https://img.shields.io/badge/Features-Request_Feature-green?style=for-the-badge)](https://github.com/yourusername/dealcloser/issues)
 
-**🎯 ~175ms p95 • 🧪 250+ tests • 📊 90%+ coverage • ⚡ Production-ready**
+**🎯 target ~175ms p95 • 🧪 250+ tests • 📊 target 90%+ coverage • ⚡ Production-ready**
 
 </div>
