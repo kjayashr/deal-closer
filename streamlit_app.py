@@ -633,8 +633,8 @@ def render_context_panel(detection: Dict[str, Any], captured_context: Dict[str, 
     col1, col2 = st.columns(2)
     
     with col1:
-    persona_label = esc(str(persona).replace("_", " ").title())
-    st.markdown(f"""
+        persona_label = esc(str(persona).replace("_", " ").title())
+        st.markdown(f"""
         <div class="card">
             <div class="card-header">
                 <span class="card-title">Context & Persona</span>

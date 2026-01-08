@@ -48,59 +48,50 @@ Format: {{"situation": "key", "confidence": 0.0-1.0, "stage": "discovery|qualifi
 Return ONLY valid JSON."""
 
         # Use router if available (Phase 3), otherwise fallback to direct client
-        if self.router:
-            async def _call_router():
-                response_text, winning_provider = await self.router.call(
-                    prompt=prompt,
-                    max_tokens=config.LLM_MAX_TOKENS_SITUATION,
-                    complexity=complexity or "medium"  # Pass complexity for tiered selection
-                )
-                logger.debug(f"Situation detection: {winning_provider} won the race (complexity: {complexity})")
-                return response_text
-            
-            try:
+        try:
+            if self.router:
+                async def _call_router():
+                    response_text, winning_provider = await self.router.call(
+                        prompt=prompt,
+                        max_tokens=config.LLM_MAX_TOKENS_SITUATION,
+                        complexity=complexity or "medium"  # Pass complexity for tiered selection
+                    )
+                    logger.debug(f"Situation detection: {winning_provider} won the race (complexity: {complexity})")
+                    return response_text
+
                 response_text = await retry_with_backoff(
                     _call_router,
                     max_attempts=config.RETRY_MAX_ATTEMPTS,
                     base_delay=config.RETRY_BASE_DELAY_SECONDS,
                     exceptions=(Exception,)
                 )
-            except Exception as e:
-                logger.error(f"Router call failed in situation detection: {str(e)}")
-                # Fallback to default
-                return {
-                    "situation": self.default_situation,
-                    "confidence": config.DEFAULT_CONFIDENCE,
-                    "stage": config.DEFAULT_STAGE
-                }
-        else:
-            # Fallback to direct client (Phase 1/2 behavior)
-            async def _call_api():
-                response = await self.client.messages.create(
-                    model=config.ANTHROPIC_MODEL,
-                    max_tokens=config.LLM_MAX_TOKENS_SITUATION,
-                    messages=[{"role": "user", "content": prompt}]
-                )
-                return response.content[0].text
-            
-            try:
+            else:
+                # Fallback to direct client (Phase 1/2 behavior)
+                async def _call_api():
+                    response = await self.client.messages.create(
+                        model=config.ANTHROPIC_MODEL,
+                        max_tokens=config.LLM_MAX_TOKENS_SITUATION,
+                        messages=[{"role": "user", "content": prompt}]
+                    )
+                    return response.content[0].text
+
                 response_text = await retry_with_backoff(
                     _call_api,
                     max_attempts=config.RETRY_MAX_ATTEMPTS,
                     base_delay=config.RETRY_BASE_DELAY_SECONDS,
                     exceptions=(APIError, APIConnectionError, APIStatusError, Exception)
                 )
-            
+
             result = json.loads(response_text)
-            
+
             # Validate situation exists
             if result.get("situation") not in self.situations:
                 logger.warning(f"Unknown situation detected: {result.get('situation')}. Using default.")
                 result["situation"] = self.default_situation
                 result["confidence"] = config.DEFAULT_CONFIDENCE
-            
+
             return result
-            
+
         except (json.JSONDecodeError, KeyError, AttributeError) as e:
             logger.error(f"Failed to parse situation detection response: {str(e)}")
             # Return default fallback
