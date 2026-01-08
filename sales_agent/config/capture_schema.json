@@ -1,0 +1,309 @@
+{
+  "capture_schema": {
+    "version": "1.0",
+    "domain": "retail_b2c",
+
+    "slots": {
+      
+      "pain": {
+        "description": "Problem they're trying to solve",
+        "listen_for": [
+          "problem with", "issue with", "frustrated", "tired of",
+          "not working", "broken", "uncomfortable", "annoying",
+          "struggling", "suffering", "can't sleep", "hurts",
+          "fed up", "sick of", "driving me crazy"
+        ],
+        "store": "verbatim_quote",
+        "priority": "high",
+        "feeds_principles": ["kahneman_loss_aversion_01", "voss_labeling_01"]
+      },
+
+      "duration": {
+        "description": "How long they've had this problem",
+        "listen_for": [
+          "for years", "for months", "since", "for a while",
+          "long time", "been dealing with", "past few", "almost"
+        ],
+        "store": "verbatim_quote",
+        "priority": "high",
+        "feeds_principles": ["kahneman_loss_aversion_01"]
+      },
+
+      "current_state": {
+        "description": "What they have/use currently",
+        "listen_for": [
+          "currently using", "right now I have", "my old",
+          "existing", "at the moment", "what I have now",
+          "bought years ago", "still using"
+        ],
+        "store": "verbatim_quote",
+        "priority": "medium",
+        "feeds_principles": ["kahneman_endowment_effect_01"]
+      },
+
+      "trigger_event": {
+        "description": "Why are they looking NOW",
+        "listen_for": [
+          "because", "finally decided", "last straw",
+          "doctor said", "broke down", "stopped working",
+          "moving", "new house", "renovation",
+          "wedding", "holiday", "birthday", "anniversary",
+          "baby coming", "parents visiting", "in-laws coming",
+          "saw an ad", "friend recommended"
+        ],
+        "store": "verbatim_quote",
+        "priority": "high",
+        "feeds_principles": ["cialdini_scarcity_01", "kahneman_loss_aversion_01"]
+      },
+
+      "product_interest": {
+        "description": "Specific product that caught attention",
+        "listen_for": [
+          "saw the", "interested in", "looking at",
+          "someone recommended", "read about", "heard about",
+          "that model", "the one with", "calling about"
+        ],
+        "store": "verbatim_quote",
+        "priority": "high",
+        "feeds_principles": ["kahneman_anchoring_01"]
+      },
+
+      "budget_signal": {
+        "description": "Price sensitivity indicators",
+        "listen_for": [
+          "cheapest", "budget", "affordable", "best value",
+          "premium", "top model", "best one", "money not a problem",
+          "financing", "installment", "monthly payment",
+          "expensive", "costly", "lot of money", "tight budget",
+          "stretching", "saving up"
+        ],
+        "store": "verbatim_quote",
+        "classify_as": ["price_sensitive", "value_seeker", "premium_buyer"],
+        "priority": "high",
+        "feeds_principles": ["kahneman_loss_aversion_01", "cialdini_reciprocation_01"]
+      },
+
+      "timeline": {
+        "description": "When do they need it",
+        "listen_for": [
+          "need it by", "before", "urgently", "as soon as",
+          "this week", "tomorrow", "no rush", "whenever",
+          "for the wedding", "before the holiday", "by weekend",
+          "can wait", "not urgent", "immediately"
+        ],
+        "store": "verbatim_quote",
+        "classify_as": ["urgent", "flexible", "deadline_driven"],
+        "priority": "medium",
+        "feeds_principles": ["cialdini_scarcity_01", "voss_deadlines_01"]
+      },
+
+      "decision_maker": {
+        "description": "Who makes the final decision",
+        "listen_for": [
+          "ask my husband", "ask my wife", "check with family",
+          "parents will decide", "need to discuss",
+          "I'll decide", "my decision", "I'm the one",
+          "we decide together", "boss will approve"
+        ],
+        "store": "verbatim_quote",
+        "classify_as": ["sole_decider", "needs_approval", "group_decision"],
+        "priority": "high",
+        "feeds_principles": ["cialdini_commitment_01"]
+      },
+
+      "buying_for": {
+        "description": "Who is the end user",
+        "listen_for": [
+          "for my parents", "for myself", "for my kids",
+          "gift for", "for our home", "for the office",
+          "for my mother", "for my father", "for my son",
+          "for my daughter", "for grandparents"
+        ],
+        "store": "verbatim_quote",
+        "priority": "medium",
+        "feeds_principles": ["cialdini_liking_01"]
+      },
+
+      "past_experience": {
+        "description": "Previous purchases or brand experience",
+        "listen_for": [
+          "last time I bought", "previously purchased",
+          "bad experience", "been your customer", "bought from you before",
+          "got cheated", "didn't work out", "was a mistake",
+          "worked well", "loved it", "great experience"
+        ],
+        "store": "verbatim_quote",
+        "classify_as": ["positive_history", "negative_history", "first_time"],
+        "priority": "high",
+        "feeds_principles": ["voss_labeling_01", "kahneman_availability_01"]
+      },
+
+      "competitor_mention": {
+        "description": "Other options they're considering",
+        "listen_for": [
+          "amazon has", "online store", "other store",
+          "online price", "saw it cheaper", "also looking at",
+          "comparing with", "local shop", "big box store"
+        ],
+        "store": "verbatim_quote",
+        "priority": "high",
+        "feeds_principles": ["cialdini_authority_01", "kahneman_anchoring_01"]
+      },
+
+      "objection": {
+        "description": "Explicit objection or hesitation",
+        "listen_for": [
+          "too expensive", "not sure", "need to think",
+          "what if", "worried about", "don't trust",
+          "sounds too good", "what's the catch", "seems risky"
+        ],
+        "store": "verbatim_quote",
+        "priority": "high",
+        "feeds_principles": ["voss_labeling_01", "kahneman_loss_aversion_01"]
+      },
+
+      "emotional_state": {
+        "description": "Current emotional signals",
+        "listen_for": [
+          "frustrated", "confused", "overwhelmed", "excited",
+          "worried", "anxious", "happy", "angry", "disappointed",
+          "hopeful", "skeptical", "tired", "stressed"
+        ],
+        "store": "verbatim_quote",
+        "classify_as": ["positive", "negative", "neutral", "anxious"],
+        "priority": "high",
+        "feeds_principles": ["voss_labeling_01", "kahneman_affect_heuristic_01"]
+      },
+
+      "risk_concern": {
+        "description": "Specific fears or risks mentioned",
+        "listen_for": [
+          "what if it breaks", "what if it doesn't work",
+          "scared of", "don't want to regret", "waste money",
+          "wrong choice", "stuck with", "can't return"
+        ],
+        "store": "verbatim_quote",
+        "priority": "high",
+        "feeds_principles": ["kahneman_loss_aversion_01", "kahneman_risk_aversion_01", "kahneman_certainty_effect_01"]
+      },
+
+      "warranty_service_concern": {
+        "description": "Warranty, service, support questions",
+        "listen_for": [
+          "warranty", "guarantee", "service center",
+          "who will repair", "what if it stops working",
+          "installation", "demo", "setup", "support",
+          "after sales", "maintenance"
+        ],
+        "store": "verbatim_quote",
+        "priority": "high",
+        "feeds_principles": ["kahneman_certainty_effect_01", "cialdini_authority_01"]
+      },
+
+      "social_proof_seeking": {
+        "description": "Looking for validation from others",
+        "listen_for": [
+          "what do others say", "reviews", "ratings",
+          "how many people bought", "is it popular",
+          "what do experts say", "any recommendations",
+          "best seller", "most popular"
+        ],
+        "store": "verbatim_quote",
+        "priority": "medium",
+        "feeds_principles": ["cialdini_social_proof_01", "cialdini_authority_01"]
+      },
+
+      "feature_focus": {
+        "description": "Specific features they care about",
+        "listen_for": [
+          "does it have", "I need", "must have",
+          "important to me", "looking for", "want the one with",
+          "should be able to", "can it do"
+        ],
+        "store": "verbatim_quote",
+        "priority": "medium",
+        "feeds_principles": ["kahneman_focusing_illusion_01"]
+      },
+
+      "reference_point": {
+        "description": "What they're comparing against",
+        "listen_for": [
+          "compared to", "better than", "similar to",
+          "like my old one", "my friend has", "saw at",
+          "costs X elsewhere", "other brands charge"
+        ],
+        "store": "verbatim_quote",
+        "priority": "medium",
+        "feeds_principles": ["kahneman_reference_point_01", "kahneman_anchoring_01"]
+      },
+
+      "commitment_signal": {
+        "description": "Small commitments already made",
+        "listen_for": [
+          "I've decided", "we want", "planning to",
+          "told my wife", "already checked", "shortlisted",
+          "came specifically for", "been researching"
+        ],
+        "store": "verbatim_quote",
+        "priority": "medium",
+        "feeds_principles": ["cialdini_commitment_01", "cialdini_consistency_01"]
+      },
+
+      "quantity": {
+        "description": "How many they want to buy",
+        "listen_for": [
+          "need two", "multiple", "one for each",
+          "bulk", "for all rooms", "whole house",
+          "for the team", "several"
+        ],
+        "store": "verbatim_quote",
+        "priority": "medium",
+        "feeds_principles": ["cialdini_reciprocation_01"]
+      },
+
+      "alternative_consideration": {
+        "description": "Other approaches they're considering",
+        "listen_for": [
+          "should I repair", "rent instead", "second hand",
+          "refurbished", "wait for sale", "older model",
+          "used one", "borrow"
+        ],
+        "store": "verbatim_quote",
+        "priority": "medium",
+        "feeds_principles": ["kahneman_loss_aversion_01", "kahneman_anchoring_01"]
+      },
+
+      "how_found_us": {
+        "description": "Referral source",
+        "listen_for": [
+          "saw your ad", "friend told me", "google search",
+          "walked by", "got your number from", "called before",
+          "social media", "instagram", "youtube"
+        ],
+        "store": "verbatim_quote",
+        "priority": "low",
+        "feeds_principles": ["cialdini_social_proof_01"]
+      },
+
+      "location": {
+        "description": "Customer location for delivery/service",
+        "listen_for": [
+          "I'm in", "located in", "deliver to", "my area",
+          "zip code", "address is", "near", "how far"
+        ],
+        "store": "verbatim_quote",
+        "priority": "low",
+        "feeds_principles": []
+      }
+    },
+
+    "capture_rules": {
+      "always_capture_exact_numbers": true,
+      "always_capture_product_names": true,
+      "always_capture_competitor_prices": true,
+      "always_capture_emotion_words": true,
+      "max_quote_length": 50,
+      "capture_on_first_mention": true
+    }
+  }
+}

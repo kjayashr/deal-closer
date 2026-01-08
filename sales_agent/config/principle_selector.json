@@ -1,0 +1,146 @@
+{
+  "principle_selector": {
+    "version": "1.0",
+    "domain": "retail",
+
+    "rules": [
+      {
+        "situation": "price_objection",
+        "when_context_has": ["pain"],
+        "use": "kahneman_loss_aversion_01"
+      },
+      {
+        "situation": "price_objection",
+        "when_context_missing": ["pain"],
+        "use": "voss_labeling_01",
+        "note": "Uncover pain first"
+      },
+      {
+        "situation": "wants_discount",
+        "when_context_has": ["pain"],
+        "use": "kahneman_loss_aversion_01"
+      },
+      {
+        "situation": "wants_discount",
+        "when_context_missing": ["pain"],
+        "use": "cialdini_reciprocation_01"
+      },
+      {
+        "situation": "comparing_online",
+        "use": "cialdini_authority_01",
+        "note": "Establish in-store value and trust"
+      },
+      {
+        "situation": "comparing_models",
+        "use": "kahneman_anchoring_01",
+        "note": "Anchor to higher model first"
+      },
+      {
+        "situation": "looking_for_cheaper",
+        "when_context_has": ["pain"],
+        "use": "kahneman_loss_aversion_01"
+      },
+      {
+        "situation": "looking_for_cheaper",
+        "when_context_missing": ["pain"],
+        "use": "cialdini_social_proof_01"
+      },
+      {
+        "situation": "asking_about_emi",
+        "use": "kahneman_mental_accounting_01",
+        "note": "Break down to daily/monthly cost"
+      },
+      {
+        "situation": "need_to_ask_spouse",
+        "use": "cialdini_commitment_01",
+        "note": "Small commitment before leaving"
+      },
+      {
+        "situation": "will_come_back_later",
+        "when_context_has": ["product_interest"],
+        "use": "cialdini_scarcity_01"
+      },
+      {
+        "situation": "will_come_back_later",
+        "when_context_missing": ["product_interest"],
+        "use": "cialdini_commitment_01"
+      },
+      {
+        "situation": "let_me_think",
+        "when_context_has": ["pain", "product_interest"],
+        "use": "kahneman_loss_aversion_01"
+      },
+      {
+        "situation": "let_me_think",
+        "when_context_missing": ["pain"],
+        "use": "voss_labeling_01"
+      },
+      {
+        "situation": "warranty_concern",
+        "use": "kahneman_certainty_effect_01"
+      },
+      {
+        "situation": "service_concern",
+        "use": "kahneman_certainty_effect_01"
+      },
+      {
+        "situation": "return_policy_question",
+        "use": "cialdini_commitment_01",
+        "note": "Trial framing reduces risk"
+      },
+      {
+        "situation": "past_bad_experience",
+        "use": "voss_labeling_01",
+        "note": "Acknowledge before reframing"
+      },
+      {
+        "situation": "saw_bad_reviews",
+        "use": "voss_labeling_01",
+        "note": "Acknowledge then counter with authority"
+      },
+      {
+        "situation": "skeptical_about_quality",
+        "use": "cialdini_authority_01"
+      },
+      {
+        "situation": "friend_had_issues",
+        "use": "voss_labeling_01"
+      },
+      {
+        "situation": "confused_about_features",
+        "use": "cialdini_authority_01"
+      },
+      {
+        "situation": "just_browsing",
+        "use": "voss_mirroring_01",
+        "note": "Build rapport, gather context"
+      },
+      {
+        "situation": "doing_research",
+        "use": "cialdini_reciprocation_01",
+        "note": "Offer value, build obligation"
+      },
+      {
+        "situation": "ready_to_buy",
+        "use": "cialdini_commitment_01",
+        "note": "Lock it in smoothly"
+      },
+      {
+        "situation": "asking_about_stock",
+        "use": "cialdini_scarcity_01"
+      },
+      {
+        "situation": "asking_about_delivery",
+        "use": "cialdini_commitment_01",
+        "note": "Move toward close"
+      }
+    ],
+
+    "fallback": {
+      "default": "voss_mirroring_01",
+      "when_no_context": "voss_mirroring_01",
+      "after_failed_attempt_1": "voss_labeling_01",
+      "after_failed_attempt_2": "cialdini_commitment_01"
+    }
+  }
+}
