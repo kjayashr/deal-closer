@@ -191,22 +191,22 @@ Automatically re-runs situation detection when:
 
 ```mermaid
 flowchart TD
-    Start[📥 Customer Message] --> Cache{💾 Cache Check}
-    Cache -->|Hit| Fast[⚡ Target <10ms Response]
-    Cache -->|Miss| Parallel[🔄 Parallel Execution]
+    Start[Customer Message] --> Cache{Cache Check}
+    Cache -->|Hit| Fast[Fast Response <10ms]
+    Cache -->|Miss| Parallel[Parallel Execution]
     
-    Parallel --> Capture[📊 Capture Signals]
-    Parallel --> Detect[🎯 Detect Situation]
+    Parallel --> Capture[Capture Signals]
+    Parallel --> Detect[Detect Situation]
     
-    Capture --> Reconcile{🔍 Reconcile?}
+    Capture --> Reconcile{Reconcile?}
     Detect --> Reconcile
-    Reconcile -->|Yes| Redetect[🔄 Re-detect with Context]
-    Reconcile -->|No| Select[🎯 Select Principle]
+    Reconcile -->|Yes| Redetect[Re-detect with Context]
+    Reconcile -->|No| Select[Select Principle]
     Redetect --> Select
     
-    Select --> Generate[💬 Generate Response]
-    Generate --> Store[💾 Store in Caches]
-    Store --> Return[✅ Return Response]
+    Select --> Generate[Generate Response]
+    Generate --> Store[Store in Caches]
+    Store --> Return[Return Response]
     
     style Fast fill:#90EE90
     style Parallel fill:#87CEEB
@@ -218,33 +218,33 @@ flowchart TD
 #### ⚡ Cache Hit Path
 ```mermaid
 flowchart TD
-    Start[📥 Customer Message] --> Exact{Exact Cache Hit?}
-    Exact -->|Yes| ExactReturn[✅ Return Cached Response]
+    Start[Customer Message] --> Exact{Exact Cache Hit?}
+    Exact -->|Yes| ExactReturn[Return Cached Response]
     Exact -->|No| Semantic{Semantic Cache Hit?}
-    Semantic -->|Yes| SemanticReturn[✅ Return Cached Response]
-    Semantic -->|No| Miss[➡️ Cache Miss Path]
+    Semantic -->|Yes| SemanticReturn[Return Cached Response]
+    Semantic -->|No| Miss[Cache Miss Path]
 ```
 
 #### 🧭 Cache Miss + Reconcile Path
 ```mermaid
 flowchart TD
-    Start[📥 Customer Message] --> Parallel[🔄 Capture + Detect (Parallel)]
-    Parallel --> Update[🧩 Update Context]
+    Start[Customer Message] --> Parallel[Capture + Detect Parallel]
+    Parallel --> Update[Update Context]
     Update --> Reconcile{Reconcile Needed?}
-    Reconcile -->|Yes| Redetect[🔄 Re-detect with Updated Context]
-    Reconcile -->|No| Select[🎯 Select Principle]
+    Reconcile -->|Yes| Redetect[Re-detect with Updated Context]
+    Reconcile -->|No| Select[Select Principle]
     Redetect --> Select
-    Select --> Generate[💬 Generate Response]
-    Generate --> Store[💾 Store in Caches]
-    Store --> Return[✅ Return Response]
+    Select --> Generate[Generate Response]
+    Generate --> Store[Store in Caches]
+    Store --> Return[Return Response]
 ```
 
 #### 🛟 LLM Fallback Path
 ```mermaid
 flowchart TD
-    Start[📥 Customer Message] --> Generate[💬 Generate Response]
-    Generate -->|Success| Return[✅ Return Response]
-    Generate -->|LLM Error| Fallback[🛟 Use Fallback Response]
+    Start[Customer Message] --> Generate[Generate Response]
+    Generate -->|Success| Return[Return Response]
+    Generate -->|LLM Error| Fallback[Use Fallback Response]
     Fallback --> Return
 ```
 
@@ -278,33 +278,33 @@ flowchart TD
 ```mermaid
 sequenceDiagram
     autonumber
-    actor 👤 Customer
-    participant 🌐 API
-    participant 🧠 Orchestrator
-    participant 💾 Cache
-    participant 📊 Engines
-    participant 🤖 LLM Providers
+    actor Customer
+    participant API
+    participant Orchestrator
+    participant Cache
+    participant Engines
+    participant LLMProviders as LLM Providers
 
-    👤 Customer->>🌐 API: POST /chat
-    🌐 API->>🧠 Orchestrator: process_message()
-    🧠 Orchestrator->>💾 Cache: Check exact + semantic
+    Customer->>API: POST /chat
+    API->>Orchestrator: process_message()
+    Orchestrator->>Cache: Check exact + semantic
     
-    alt Cache Hit 🎯
-        💾 Cache-->>🧠 Orchestrator: Cached response (target <10ms)
-        🧠 Orchestrator-->>🌐 API: Response
-        🌐 API-->>👤 Customer: ✅ Instant response
-    else Cache Miss ⚡
+    alt Cache Hit
+        Cache-->>Orchestrator: Cached response <10ms
+        Orchestrator-->>API: Response
+        API-->>Customer: Instant response
+    else Cache Miss
         par Parallel Execution
-            🧠 Orchestrator->>📊 Engines: Extract signals
-            🧠 Orchestrator->>📊 Engines: Detect situation
+            Orchestrator->>Engines: Extract signals
+            Orchestrator->>Engines: Detect situation
         end
-        🧠 Orchestrator->>🧠 Orchestrator: Reconcile if needed
-        🧠 Orchestrator->>🧠 Orchestrator: Select principle
-        🧠 Orchestrator->>🤖 LLM Providers: Generate (racing)
-        🤖 LLM Providers-->>🧠 Orchestrator: Response
-        🧠 Orchestrator->>💾 Cache: Store results
-        🧠 Orchestrator-->>🌐 API: Response (target ~175ms)
-        🌐 API-->>👤 Customer: ✅ Natural response
+        Orchestrator->>Orchestrator: Reconcile if needed
+        Orchestrator->>Orchestrator: Select principle
+        Orchestrator->>LLMProviders: Generate racing
+        LLMProviders-->>Orchestrator: Response
+        Orchestrator->>Cache: Store results
+        Orchestrator-->>API: Response ~175ms
+        API-->>Customer: Natural response
     end
 ```
 
