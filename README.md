@@ -268,7 +268,7 @@ Automatically re-runs situation detection when:
 ```mermaid
 flowchart TD
     Start[Customer Message] --> Cache{Cache Check}
-    Cache -->|Hit| Fast[Fast Response under 10ms (target)]
+    Cache -->|Hit| Fast["Fast Response under 10ms target"]
     Cache -->|Miss| Parallel[Parallel Execution]
     
     Parallel --> Capture[Capture Signals]
