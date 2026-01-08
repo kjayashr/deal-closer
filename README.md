@@ -28,6 +28,68 @@
 
 ---
 
+## 🧭 Simple Request Flow
+
+```mermaid
+flowchart TD
+    Start[Customer Message] --> Cache{Cache Check}
+    Cache -->|Hit| ReturnFast[Return Cached Response]
+    Cache -->|Miss| Parallel[Capture and Detect in Parallel]
+    Parallel --> Reconcile{Reconcile Needed}
+    Reconcile -->|Yes| Redetect[Redetect with Updated Context]
+    Reconcile -->|No| Match[Match Principle]
+    Redetect --> Match
+    Match --> Generate[Generate Response]
+    Generate --> Return[Return Response]
+```
+
+## 🔍 MIR-MAT Core Logic (Situation → Slots → Matching)
+
+These diagrams describe the core decision engine: capture slots, detect situation, match principles, and generate responses. This is the heart of DealCloser.
+
+### MIR-MAT Overview
+```mermaid
+flowchart TD
+    Start[Customer Message] --> Capture[Capture Slots]
+    Capture --> Context[Update Context]
+    Context --> Detect[Detect Situation]
+    Detect --> Match[Match Principle]
+    Match --> Generate[Generate Response]
+    Generate --> Return[Return Response]
+```
+
+### Situation Detection Path
+```mermaid
+flowchart TD
+    Start[Message + Context] --> Signals[Extract Signals]
+    Signals --> Classify[Classify Situation]
+    Classify --> Confidence[Confidence Score]
+    Confidence --> Decision{Reconcile Needed?}
+    Decision -->|Yes| ReDetect[Re-detect with Updated Context]
+    Decision -->|No| Done[Situation Locked]
+    ReDetect --> Done
+```
+
+### Slot Capture and Context Update
+```mermaid
+flowchart TD
+    Start[Message] --> Slots[Capture Slots]
+    Slots --> Quotes[Capture Quotes]
+    Quotes --> Merge[Merge into Context]
+    Merge --> Persist[Persist Session State]
+```
+
+### Principle Matching (MIR-MAT)
+```mermaid
+flowchart TD
+    Start[Situation + Context] --> Rules[Rule Evaluation]
+    Rules --> Match{Rule Match?}
+    Match -->|Yes| Principle[Select Principle]
+    Match -->|No| Fallback[Fallback Principle]
+    Principle --> Response[Generate Response]
+    Fallback --> Response
+```
+
 ## ✨ What is DealCloser?
 
 DealCloser is a **production-ready AI sales agent engine** that transforms customer conversations into closing opportunities. It intelligently detects customer situations, selects proven sales principles from psychology research (Kahneman, Cialdini, Voss), and generates natural, human-like responses in milliseconds.
@@ -192,7 +254,7 @@ Automatically re-runs situation detection when:
 ```mermaid
 flowchart TD
     Start[Customer Message] --> Cache{Cache Check}
-    Cache -->|Hit| Fast[Fast Response <10ms]
+    Cache -->|Hit| Fast[Fast Response under 10ms (target)]
     Cache -->|Miss| Parallel[Parallel Execution]
     
     Parallel --> Capture[Capture Signals]
@@ -290,7 +352,7 @@ sequenceDiagram
     Orchestrator->>Cache: Check exact + semantic
     
     alt Cache Hit
-        Cache-->>Orchestrator: Cached response <10ms
+        Cache-->>Orchestrator: Cached response under 10ms (target)
         Orchestrator-->>API: Response
         API-->>Customer: Instant response
     else Cache Miss
@@ -303,7 +365,7 @@ sequenceDiagram
         Orchestrator->>LLMProviders: Generate racing
         LLMProviders-->>Orchestrator: Response
         Orchestrator->>Cache: Store results
-        Orchestrator-->>API: Response ~175ms
+        Orchestrator-->>API: Response about 175ms (target)
         API-->>Customer: Natural response
     end
 ```
