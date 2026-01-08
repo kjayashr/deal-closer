@@ -267,8 +267,6 @@ flowchart TD
     Fallback --> Return
 ```
 
-### Core Components
-
 ```
 🎯 Orchestrator (Brain)
 ├── 📊 Capture Engine (Extracts customer signals)
