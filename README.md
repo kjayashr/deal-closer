@@ -1,4 +1,4 @@
-# 🚀 DealCloser - AI Sales Agent Engine
+# DealCloser - AI Sales Agent Engine
 
 <div align="center">
 
@@ -25,7 +25,7 @@
 
 ---
 
-## 🧭 Simple Request Flow
+## Simple Request Flow
 
 ```mermaid
 flowchart TD
@@ -40,7 +40,7 @@ flowchart TD
     Generate --> Return[Return Response]
 ```
 
-## 🔍 Core Logic (Situation → Slots → Matching)
+##  Core Logic (Situation → Slots → Matching)
 
 These diagrams describe the core decision engine: capture slots, detect situation, match principles, and generate responses. This is the heart of DealCloser.
 
@@ -675,11 +675,8 @@ Customize DealCloser by editing JSON files in `sales_agent/config/`:
 | `capture_schema.json` | Extraction schema | [![Slots](https://img.shields.io/badge/Slots-23-blue?style=flat-square)]() | `slots`, `priority`, `listen_for` |
 | `settings.py` | Environment config | [![Settings](https://img.shields.io/badge/Settings-Python-green?style=flat-square)]() | API keys, cache, retry, LLM configs |
 
-### 🔧 Environment Variables
+### Environment Variables
 
-[![Env](https://img.shields.io/badge/Environment-Variables-blue?style=flat-square)]()
-[![Required](https://img.shields.io/badge/Required-1-red?style=flat-square)]()
-[![Optional](https://img.shields.io/badge/Optional-15%2B-yellow?style=flat-square)]()
 
 ```bash
 # Required
