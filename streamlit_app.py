@@ -9,6 +9,7 @@ from typing import Dict, Any, Optional
 from datetime import datetime
 import os
 import html
+from dotenv import load_dotenv
 
 # Page config
 st.set_page_config(
@@ -488,9 +489,9 @@ footer {visibility: hidden;}
 header {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
+load_dotenv()
 
-# Configuration
-API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
+API_BASE_URL = os.getenv("API_BASE_URL")
 DEFAULT_SESSION_ID = "streamlit-demo-session"
 
 # Initialize session state

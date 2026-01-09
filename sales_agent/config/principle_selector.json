@@ -52,7 +52,7 @@
       },
       {
         "situation": "need_to_ask_spouse",
-        "use": "cialdini_commitment_01",
+        "use": "cialdini_commitment_and_consistency_01",
         "note": "Small commitment before leaving"
       },
       {
@@ -63,7 +63,7 @@
       {
         "situation": "will_come_back_later",
         "when_context_missing": ["product_interest"],
-        "use": "cialdini_commitment_01"
+        "use": "cialdini_commitment_and_consistency_01"
       },
       {
         "situation": "let_me_think",
@@ -85,7 +85,7 @@
       },
       {
         "situation": "return_policy_question",
-        "use": "cialdini_commitment_01",
+        "use": "cialdini_commitment_and_consistency_01",
         "note": "Trial framing reduces risk"
       },
       {
@@ -112,7 +112,7 @@
       },
       {
         "situation": "just_browsing",
-        "use": "voss_mirroring_01",
+        "use": "voss_be_a_mirror_01",
         "note": "Build rapport, gather context"
       },
       {
@@ -122,7 +122,7 @@
       },
       {
         "situation": "ready_to_buy",
-        "use": "cialdini_commitment_01",
+        "use": "cialdini_commitment_and_consistency_01",
         "note": "Lock it in smoothly"
       },
       {
@@ -131,16 +131,16 @@
       },
       {
         "situation": "asking_about_delivery",
-        "use": "cialdini_commitment_01",
+        "use": "cialdini_commitment_and_consistency_01",
         "note": "Move toward close"
       }
     ],
 
     "fallback": {
-      "default": "voss_mirroring_01",
-      "when_no_context": "voss_mirroring_01",
+      "default": "voss_be_a_mirror_01",
+      "when_no_context": "voss_be_a_mirror_01",
       "after_failed_attempt_1": "voss_labeling_01",
-      "after_failed_attempt_2": "cialdini_commitment_01"
+      "after_failed_attempt_2": "cialdini_commitment_and_consistency_01"
     }
   }
 }

@@ -89,26 +89,26 @@ class LLMRouter:
             anthropic_model = (model_config or {}).get("anthropic_model", config.ANTHROPIC_MODEL)
             openai_model = (model_config or {}).get("openai_model", config.OPENAI_MODEL)
         
-        # Build list of racing tasks
-        tasks = []
+        # Build list of racing coroutines
+        coros = []
         task_providers = []
         
-        # Anthropic task (always included)
-        anthropic_task = self._call_anthropic(prompt, max_tokens, anthropic_model)
-        tasks.append(anthropic_task)
+        # Anthropic coroutine (always included)
+        anthropic_coro = self._call_anthropic(prompt, max_tokens, anthropic_model)
+        coros.append(anthropic_coro)
         task_providers.append("anthropic")
         
-        # OpenAI task (if enabled)
+        # OpenAI coroutine (if enabled)
         if self.openai_enabled and self.openai_client:
-            openai_task = self._call_openai(prompt, max_tokens, openai_model)
-            tasks.append(openai_task)
+            openai_coro = self._call_openai(prompt, max_tokens, openai_model)
+            coros.append(openai_coro)
             task_providers.append("openai")
         
         # Race multiple providers (or use single if only one enabled)
-        if len(tasks) == 1:
+        if len(coros) == 1:
             # Single provider case (OpenAI disabled or unavailable)
             try:
-                result = await tasks[0]
+                result = await coros[0]
                 provider = task_providers[0]
                 self.stats[provider]["wins"] += 1
                 self.stats[provider]["total"] += 1
@@ -121,6 +121,8 @@ class LLMRouter:
                 raise
         
         # Race multiple providers
+        # Convert coroutines to Tasks explicitly to satisfy asyncio APIs
+        tasks = [asyncio.create_task(c) for c in coros]
         return await self._race_providers(tasks, task_providers)
     
     async def _race_providers(
