@@ -377,16 +377,6 @@ pytest tests/unit/ -v -s
 pytest tests/unit/ -v -m "not slow"
 ```
 
-###  Test Categories
-
-| Category | Tests | Badge | Description |
-|----------|-------|-------|-------------|
-| **🔧 Pure Logic** | 94+ | [![Pure Logic](https://img.shields.io/badge/Pure_Logic-94%2B-blue?style=flat-square)]() | No external dependencies (cache, utils, selector, builder) |
-| **🔌 Simple Mocks** | 65+ | [![Simple Mocks](https://img.shields.io/badge/Simple_Mocks-65%2B-yellow?style=flat-square)]() | External APIs mocked (semantic cache, pool, generator) |
-| **🔄 Complex Logic** | 45+ | [![Complex Logic](https://img.shields.io/badge/Complex_Logic-45%2B-purple?style=flat-square)]() | Multi-component interactions (router, orchestrator) |
-| **🤖 LLM-Dependent** | 50+ | [![LLM Tests](https://img.shields.io/badge/LLM_Dependent-50%2B-orange?style=flat-square)]() | LLM API interactions with mocks (capture, detector) |
-| **🔗 Integration** | 11+ | [![Integration](https://img.shields.io/badge/Integration-11-green?style=flat-square)]() | End-to-end API flow tests |
-
 ### What's Tested
 
 
@@ -620,7 +610,7 @@ Get LLM provider statistics (win rates, error rates for racing).
 }
 ```
 
-### ❤️ GET /health
+###  GET /health
 
 [![GET](https://img.shields.io/badge/METHOD-GET-green?style=flat-square)]()
 [![Endpoint](https://img.shields.io/badge/Endpoint-/health-success?style=flat-square)]()
@@ -637,7 +627,7 @@ Health check endpoint with system status.
 }
 ```
 
-### 📍 GET /
+### GET /
 
 [![GET](https://img.shields.io/badge/METHOD-GET-green?style=flat-square)]()
 [![Endpoint](https://img.shields.io/badge/Endpoint-/-blue?style=flat-square)]()
