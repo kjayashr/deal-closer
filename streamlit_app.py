@@ -490,7 +490,7 @@ header {visibility: hidden;}
 """, unsafe_allow_html=True)
 
 # Configuration
-API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
+API_BASE_URL = os.getenv("API_BASE_URL")
 DEFAULT_SESSION_ID = "streamlit-demo-session"
 
 # Initialize session state
