@@ -85,6 +85,14 @@ Response:"""
                     base_delay=config.RETRY_BASE_DELAY_SECONDS,
                     exceptions=(Exception,)
                 )
+
+                # Validate and enforce 2-sentence limit, same as direct client path
+                validated_response = self._validate_sentence_count(response_text.strip())
+
+                return {
+                    "response": validated_response,
+                    "principle_used": principle["name"]
+                }
             except Exception as e:
                 logger.error(f"Router call failed in response generation: {str(e)}")
                 # Fallback to simple response

@@ -490,7 +490,7 @@ header {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 load_dotenv()
-# Configuration
+
 API_BASE_URL = os.getenv("API_BASE_URL")
 DEFAULT_SESSION_ID = "streamlit-demo-session"
 

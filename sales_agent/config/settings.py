@@ -4,13 +4,15 @@ All magic numbers should be configurable via environment variables.
 """
 import os
 from typing import Optional
+from dotenv import load_dotenv
 
+load_dotenv()
 
 class Config:
     """Application configuration with environment variable support."""
     
     # API Keys (Required)
-    ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
+    ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY")
     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
     
     # Logging

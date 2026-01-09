@@ -12,6 +12,23 @@ from .utils import retry_with_backoff
 
 logger = logging.getLogger(__name__)
 
+
+def _safe_parse_json(response_text: Any) -> Dict[str, Any]:
+    if response_text is None:
+        raise json.JSONDecodeError("Empty response", "", 0)
+    if not isinstance(response_text, str):
+        response_text = str(response_text)
+    text = response_text.strip()
+    if not text:
+        raise json.JSONDecodeError("Empty response", text, 0)
+    start = text.find("{")
+    end = text.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        candidate = text[start : end + 1]
+    else:
+        candidate = text
+    return json.loads(candidate)
+
 class SituationDetector:
     def __init__(self, situations: Dict, llm_pool=None, llm_router=None):
         self.situations = situations
@@ -82,7 +99,7 @@ Return ONLY valid JSON."""
                     exceptions=(APIError, APIConnectionError, APIStatusError, Exception)
                 )
 
-            result = json.loads(response_text)
+            result = _safe_parse_json(response_text)
 
             # Validate situation exists
             if result.get("situation") not in self.situations:
@@ -93,7 +110,18 @@ Return ONLY valid JSON."""
             return result
 
         except (json.JSONDecodeError, KeyError, AttributeError) as e:
-            logger.error(f"Failed to parse situation detection response: {str(e)}")
+            preview = None
+            try:
+                if isinstance(response_text, str):
+                    preview = repr(response_text[:200])
+                else:
+                    preview = repr(response_text)
+            except Exception:
+                preview = "<unavailable>"
+            logger.error(
+                f"Failed to parse situation detection response: {str(e)}; "
+                f"preview={preview}"
+            )
             # Return default fallback
             return {
                 "situation": self.default_situation,
